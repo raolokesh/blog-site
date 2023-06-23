@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %} Blog
+
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel = "stylesheet" href = "{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+
+
+{% block page_content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/lokesh.jpg' %}" alt="Lokesh - The Author of this Blog">
+        <h2>LOKESH'S BLOG</h2>
+    </header>
+    <p>Hi, I am Lokesh and i love to blog about tech and the world!</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts  %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+  
+    </ul>
+</section>
+<section id="about">
+    <h2>what I Do</h2>
+    <p>
+        My Goal is to keep on growing as a developer. I love to help others
+        
+    </p>
+</section>
+{% endblock page_content %}
